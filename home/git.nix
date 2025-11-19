@@ -11,11 +11,11 @@
     rm -f ~/.gitconfig
   '';
 
-  programs={
-    git={
+  programs = {
+    git = {
       enable = true;
       lfs.enable = false;
-    
+
       # includes = [
       #   {
       #     # use diffrent email & name for work
@@ -29,12 +29,12 @@
       #   signByDefault = true;
       # };
 
-      settings={
-        user={
+      settings = {
+        user = {
           name = user;
           email = "101378576+shk95@users.noreply.github.com";
         };
-        
+
         alias = {
           # common aliases
           br = "branch";

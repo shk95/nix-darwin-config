@@ -22,31 +22,31 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas
     masApps = {
-      microsoft-excel = 462058435;
+      microsoft-excel = 462058435; # error
       microsoft-word = 462054704;
-      microsoft-powerpoint = 462062816;
-      microsoft-onenote = 410395246;
+      microsoft-powerpoint = 462062816; # error
+      microsoft-onenote = 410395246; # error
       microsoft-todo = 1274495053;
       microsoft-onedrive = 823766827;
-      microsoft-windows_app = 1295203466;
+      microsoft-windows_app = 1295203466; # error
       hidden-bar = 1452453066;
-      pdfgear = 6465897558;
+      pdfgear = 6465897558; # error
       tot = 1491071483;
       folderpeek = 1615988943;
-      keynote = 361285480;
+      keynote = 361285480; # error
       pages = 409201541;
-      numbers = 361304891;
+      numbers = 361304891; # error
       imovie = 408981434;
 
       # safari extensions
       adguard = 1440147259;
-      bitwarden = 1352778147;
+      bitwarden = 1352778147; # error
       obsidian-web-clipper = 6720708363;
       refined-github = 1519867270;
       rightclick-fixer = 6745181406;
       rsshub-radar = 1610744717;
       vimlike = 1584519802;
-      wayback-machine = 1201888313;
+      wayback-machine = 1201888313; # error
       userscripts = 1463298887;
     };
 
