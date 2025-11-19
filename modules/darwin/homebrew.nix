@@ -2,6 +2,13 @@
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
+    enable = true;
+    onActivation = {
+      autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
+      upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
+      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
+      cleanup = "zap";
+    };
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -10,13 +17,6 @@
     # $ nix shell nixpkgs#mas
     # $ mas search <app name>
     #
-    enable = true;
-    onActivation = {
-      autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
-      upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
-      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
-      cleanup = "zap";
-    };
     # Applications to install from Mac App Store using mas.
     # You need to install all these Apps manually first so that your apple account have records for them.
     # otherwise Apple Store will refuse to install them.
@@ -50,29 +50,22 @@
       userscripts = 1463298887;
     };
 
-    # taps = [];
+    taps = [
+    ];
 
     # `brew install`
-    # brews = [
-    # ];
+    brews = [
+    ];
 
     # `brew install --cask`
     casks = [
-      "firefox"
-      "google-chrome"
       "visual-studio-code"
       "telegram"
       "discord"
-
       "anki"
-      "iina" # video player
-      "raycast" # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
-      "stats" # beautiful system monitor
-
-      # Development
-      "insomnia" # REST client
-      "wireshark-app" # network analyzer
-
+      "iina"
+      "stats"
+      "insomnia"
       "chatgpt"
       "dbeaver-community"
       "font-hack-nerd-font"
@@ -99,8 +92,6 @@
       "ungoogled-chromium"
       "utm"
       "wireshark-app"
-      "xquartz"
-      "zoom"
     ];
   };
 }

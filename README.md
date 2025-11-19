@@ -1,7 +1,11 @@
 # nix-darwin-config
 nix-darwin configuraion
 
+## installation
 
+```
+$ 
+```
 ## References
 
-- [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter)
+- [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)

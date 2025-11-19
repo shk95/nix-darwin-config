@@ -20,18 +20,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
+    # secrets management
+    agenix = {
+      # lock with git commit at May 18, 2025
+      url = "github:ryantm/agenix/4835b1dc898959d8547a871ef484930675cb47f1";
+      # replaced with a type-safe reimplementation to get a better error message and less bugs.
+      # url = "github:ryan4yin/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ghostty = {
@@ -49,39 +44,17 @@
     nixpkgs,
     nix-darwin,
     home-manager,
-    nix-homebrew,
-    homebrew-core,
-    homebrew-cask,
-    homebrew-bundle,
+    agenix,
+    ghostty,
     ...
   }: let
     system = "aarch64-darwin";
     user = "shk";
-    hostname = "shk-macbook";
-
-    specialArgs =
-      inputs
-      // {
-        inherit system user hostname nix-homebrew homebrew-core homebrew-cask homebrew-bundle;
-      };
+    specialArgs = inputs // {inherit system user;};
   in {
-    darwinConfigurations.default = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
       modules = [
-        # nix-homebrew
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          enable = true;
-          inherit user;
-          taps = {
-            "homebrew/homebrew-core" = homebrew-core;
-            "homebrew/homebrew-cask" = homebrew-cask;
-            "homebrew/homebrew-bundle" = homebrew-bundle;
-          };
-          mutableTaps = false;
-          autoMigrate = true;
-        }
-
         # home manager
         home-manager.darwinModules.home-manager
         {
@@ -90,12 +63,11 @@
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.users.${user} = import ./home;
         }
-
         ./hosts/darwin
       ];
     };
 
-    # nix code formatter
+    # Format the nix code in this flake
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
