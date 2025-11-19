@@ -1,5 +1,12 @@
-{user, ...}: {
-  nix.settings.trusted-users = [user];
+{
+  pkgs,
+  ...
+}: {
+  # Add ability to used TouchID for sudo authentication
+  security.pam.services.sudo_local.touchIdAuth = true;
+
+  # Set your time zone.
+  time.timeZone = "Asia/Seoul";
 
   ###################################################################################
   #
@@ -12,13 +19,7 @@
   #
   ###################################################################################
   system = {
-    primaryUser = user;
-
-    # Add ability to used TouchID for sudo authentication
-    security.pam.services.sudo_local.touchIdAuth = true;
-
-    # Set your time zone.
-    time.timeZone = "Asia/Seoul";
+    stateVersion = 6;
 
     defaults = {
       # show 24 hour clock
@@ -60,7 +61,7 @@
         # `defaults read NSGlobalDomain "xxx"`
         "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 1; # enable beep sound when pressing volume up/down key
-        AppleInterfaceStyle = "Light"; # light mode
+        # AppleInterfaceStyle = "Dark"; # dark mode
         AppleKeyboardUIMode = 3; # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true; # enable press and hold
 
@@ -141,24 +142,28 @@
         SHOWFULLNAME = true; # show full name in login window
       };
     };
-
-    # keyboard settings is not very useful on macOS
-    # the most important thing is to remap option key to alt key globally,
-    # but it's not supported by macOS yet.
-    # keyboard = {
-    # enableKeyMapping = true;  # enable key mapping so that we can use `option` as `control`
-
-    # NOTE: do NOT support remap capslock to both control and escape at the same time
-    # remapCapsLockToControl = false;  # remap caps lock to control, useful for emac users
-    # remapCapsLockToEscape  = true;   # remap caps lock to escape, useful for vim users
-
-    # swap left command and left alt
-    # so it matches common keyboard layout: `ctrl | command | alt`
-    #
-    # disabled, caused only problems!
-    # swapLeftCommandAndLeftAlt = false;
-    # };
   };
 
-  stateVersion = 6;
+    # Create /etc/zshrc that loads the nix-darwin environment.
+    # this is required if you want to use darwin's default shell - zsh
+    programs.zsh.enable = true;
+    environment.shells = [
+      pkgs.zsh
+    ];
+
+    # Fonts
+    fonts = {
+      packages = with pkgs; [
+        # icon fonts
+        material-design-icons
+        font-awesome
+
+        # nerdfonts
+        # https://github.com/NixOS/nixpkgs/blob/nixos-unstable-small/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
+        nerd-fonts.symbols-only # symbols icon only
+        nerd-fonts.fira-code
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.iosevka
+      ];
+    };
 }

@@ -11,54 +11,59 @@
     rm -f ~/.gitconfig
   '';
 
-  programs.git = {
-    enable = true;
-    lfs.enable = false;
-
-    userName = user;
-    userEmail = "101378576+shk95@users.noreply.github.com";
-
-    # includes = [
-    #   {
-    #     # use diffrent email & name for work
-    #     path = "~/work/.gitconfig";
-    #     condition = "gitdir:~/work/";
-    #   }
-    # ];
-
-    extraConfig = {
-      init.defaultBranch = "master";
-      push.autoSetupRemote = true;
-      pull.rebase = true;
-    };
-
-    # signing = {
-    #   key = "xxx";
-    #   signByDefault = true;
-    # };
-
-    delta = {
+  programs={
+    git={
       enable = true;
-      options = {
-        features = "side-by-side";
+      lfs.enable = false;
+    
+      # includes = [
+      #   {
+      #     # use diffrent email & name for work
+      #     path = "~/work/.gitconfig";
+      #     condition = "gitdir:~/work/";
+      #   }
+      # ];
+
+      # signing = {
+      #   key = "xxx";
+      #   signByDefault = true;
+      # };
+
+      settings={
+        user={
+          name = user;
+          email = "101378576+shk95@users.noreply.github.com";
+        };
+        
+        alias = {
+          # common aliases
+          br = "branch";
+          co = "checkout";
+          st = "status";
+          ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
+          ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
+          cm = "commit -m";
+          ca = "commit -am";
+          dc = "diff --cached";
+          amend = "commit --amend -m";
+
+          # aliases for submodule
+          update = "submodule update --init --recursive";
+          foreach = "submodule foreach";
+        };
+
+        init.defaultBranch = "master";
+        push.autoSetupRemote = true;
+        pull.rebase = true;
       };
     };
 
-    aliases = {
-      # common aliases
-      br = "branch";
-      co = "checkout";
-      st = "status";
-      ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
-      ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
-      cm = "commit -m";
-      ca = "commit -am";
-      dc = "diff --cached";
-      amend = "commit --amend -m";
-
-      # aliases for submodule
-      update = "submodule update --init --recursive";
-      foreach = "submodule foreach";
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        features = "side-by-side";
+      };
     };
   };
 }

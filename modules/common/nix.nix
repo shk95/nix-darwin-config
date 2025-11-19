@@ -29,8 +29,7 @@
     # do garbage collection weekly to keep disk usage low
     gc = {
       automatic = lib.mkDefault true;
-      dates = "weekly";
-      options = lib.mkDefault "--delete-older-than 7d";
+      options = lib.mkDefault "--delete-older-than 14d";
     };
   };
 }

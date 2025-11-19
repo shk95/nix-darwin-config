@@ -28,6 +28,8 @@
 
     # productivity
     glow # markdown previewer in terminal
+
+    delta
   ];
 
   programs = {

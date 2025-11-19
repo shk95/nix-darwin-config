@@ -52,7 +52,7 @@
     user = "shk";
     specialArgs = inputs // {inherit system user;};
   in {
-    darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.default = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
       modules = [
         # home manager
