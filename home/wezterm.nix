@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit (pkgs.stdenvNoCC.hostPlatform) isDarwin isLinux;
+{lib, ...}: let
   toLua = lib.generators.toLua {};
 
   colors = {
@@ -31,22 +26,13 @@
     };
   };
 
-  font =
-    if isLinux
-    then [
-      {family = "PragmataProMono Nerd Font Mono";}
-    ]
-    else [
-      {family = "PragmataProMono Nerd Font Mono";}
-      {
-        family = "Apple Color Emoji";
-        assume_emoji_presentation = true;
-      }
-    ];
-  font-size =
-    if isDarwin
-    then 13
-    else 10;
+  fontList = [
+    {family = "JetBrains Mono Nerd Font";} # free nerd font from nixpkgs
+    {
+      family = "Apple Color Emoji"; # for emojis
+      assume_emoji_presentation = true;
+    }
+  ];
 in {
   programs.wezterm = {
     enable = true;
@@ -56,12 +42,12 @@ in {
         toLua {
           automatically_reload_config = true;
           color_scheme = "default";
-          # font = lib.generators.mkLuaInline ''
-          #   wezterm.font_with_fallback(${toLua font})
-          # '';
-          font_size = font-size;
+          font = lib.generators.mkLuaInline ''
+            wezterm.font_with_fallback(${toLua fontList})
+          '';
+          font_size = 16;
           front_end = "WebGpu";
-          hide_tab_bar_if_only_one_tab = true;
+          hide_tab_bar_if_only_one_tab = false;
           keys = [
             {
               key = "Enter";
@@ -114,7 +100,6 @@ in {
       };
     };
 
-    enableBashIntegration = true;
     enableZshIntegration = true;
   };
 }

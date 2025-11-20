@@ -1,9 +1,11 @@
 {user, ...}: {
   imports = [
-    ./core.nix
     ./git.nix
+    ./packages.nix
+    ./programs.nix
     ./shell.nix
     ./starship.nix
+    ./fonts.nix
     ./wezterm.nix
   ];
 

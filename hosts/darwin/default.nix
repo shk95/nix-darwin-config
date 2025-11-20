@@ -1,13 +1,11 @@
-{user, ...}: {
+{...}: let
+  hostname = "shk";
+in {
   imports = [
     ../../modules/darwin
   ];
 
-  users.users."${user}" = {
-    home = "/Users/${user}";
-    description = user;
-  };
-  system.primaryUser = user;
-
-  nix.settings.trusted-users = [user];
+  networking.hostName = hostname;
+  networking.computerName = hostname;
+  system.defaults.smb.NetBIOSName = hostname;
 }

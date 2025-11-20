@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  user,
   ...
 }: {
   nix = {
@@ -19,6 +20,8 @@
         "nix-command"
         "flakes"
       ];
+
+      trusted-users = [user];
 
       # Disable auto-optimise-store because of this issue:
       #   https://github.com/NixOS/nix/issues/7273
