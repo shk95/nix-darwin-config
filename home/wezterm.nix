@@ -117,4 +117,8 @@ in {
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
+
+  home.packages=[
+    pkgs.fonts.pragmatpro
+  ]++ lib.optional isDarwin pkgs.appleFonts.appleColorEmoji;
 }
