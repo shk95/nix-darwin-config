@@ -56,9 +56,9 @@ in {
         toLua {
           automatically_reload_config = true;
           color_scheme = "default";
-          font = lib.generators.mkLuaInline ''
-            wezterm.font_with_fallback(${toLua font})
-          '';
+          # font = lib.generators.mkLuaInline ''
+          #   wezterm.font_with_fallback(${toLua font})
+          # '';
           font_size = font-size;
           front_end = "WebGpu";
           hide_tab_bar_if_only_one_tab = true;
@@ -117,8 +117,4 @@ in {
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
-
-  home.packages=[
-    pkgs.fonts.pragmatpro
-  ]++ lib.optional isDarwin pkgs.appleFonts.appleColorEmoji;
 }
