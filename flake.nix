@@ -4,7 +4,7 @@
   # This is the standard format for flake.nix. `inputs` are the dependencies of the flake,
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -28,10 +28,6 @@
       # url = "github:ryan4yin/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   # The `outputs` function will return all the build results of the flake.
@@ -45,7 +41,6 @@
     nix-darwin,
     home-manager,
     agenix,
-    ghostty,
     ...
   }: let
     system = "aarch64-darwin";
@@ -55,6 +50,7 @@
     darwinConfigurations.default = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
       modules = [
+        ./hosts/darwin
         # home manager
         home-manager.darwinModules.home-manager
         {
@@ -63,7 +59,6 @@
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.users.${user} = import ./home;
         }
-        ./hosts/darwin
       ];
     };
 

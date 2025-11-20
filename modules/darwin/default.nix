@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     ../../modules/common
-    ../../modules/darwin/homebrew.nix
     ../../modules/darwin/system.nix
+    ../../modules/darwin/homebrew.nix
   ];
 
   # The platform the configuration will be used on.

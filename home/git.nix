@@ -29,13 +29,26 @@
       #   signByDefault = true;
       # };
 
+      ignores = [
+        ".DS_Store"
+        ".direnv"
+        ".envrc"
+        ".spr.yml"
+        "*.pem"
+      ];
+
       settings = {
         user = {
           name = user;
           email = "101378576+shk95@users.noreply.github.com";
         };
 
-        alias = {
+        init.defaultBranch = "master";
+        push.autoSetupRemote = true;
+        pull.rebase = true;
+        log.date = "iso"; # use iso format for date
+
+        aliases = {
           # common aliases
           br = "branch";
           co = "checkout";
@@ -51,10 +64,6 @@
           update = "submodule update --init --recursive";
           foreach = "submodule foreach";
         };
-
-        init.defaultBranch = "master";
-        push.autoSetupRemote = true;
-        pull.rebase = true;
       };
     };
 
@@ -62,7 +71,11 @@
       enable = true;
       enableGitIntegration = true;
       options = {
-        features = "side-by-side";
+        diff-so-fancy = true;
+        line-numbers = true;
+        true-color = "always";
+        # features => named groups of settings, used to keep related settings organized
+        # features = "";
       };
     };
   };

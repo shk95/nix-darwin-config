@@ -16,7 +16,7 @@
     systemPackages = with pkgs; [
       neovim
       git
-      just # use Justfile to simplify nix-darwin's commands
+      just
       jq
       fzf
       wget
