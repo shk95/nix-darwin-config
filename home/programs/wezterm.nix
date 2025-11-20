@@ -27,7 +27,7 @@
   };
 
   fontList = [
-    {family = "JetBrains Mono Nerd Font";} # free nerd font from nixpkgs
+    {family = "JetBrains Mono";}
     {
       family = "Apple Color Emoji"; # for emojis
       assume_emoji_presentation = true;
@@ -45,7 +45,7 @@ in {
           font = lib.generators.mkLuaInline ''
             wezterm.font_with_fallback(${toLua fontList})
           '';
-          font_size = 16;
+          font_size = 13;
           front_end = "WebGpu";
           hide_tab_bar_if_only_one_tab = false;
           keys = [

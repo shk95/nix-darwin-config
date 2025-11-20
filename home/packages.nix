@@ -28,5 +28,7 @@
 
     # productivity
     glow # markdown previewer in terminal
+    alacritty
+    wezterm
   ];
 }

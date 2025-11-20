@@ -1,12 +1,10 @@
 {user, ...}: {
   imports = [
-    ./git.nix
     ./packages.nix
-    ./programs.nix
+    ./programs
     ./shell.nix
     ./starship.nix
     ./fonts.nix
-    ./wezterm.nix
   ];
 
   # Home Manager needs a bit of information about you and the
