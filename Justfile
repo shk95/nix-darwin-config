@@ -26,9 +26,9 @@ darwin-debug:
   sudo -E ./result/sw/bin/darwin-rebuild switch --flake .#{{hostname}} --show-trace --verbose
 
 [group('desktop')]
-check:
+check args="":
   nix flake check
-  nix build .#darwinConfigurations.{{hostname}}.system --dry-run
+  nix build .#darwinConfigurations.{{hostname}}.system --dry-run {{args}}
 
 ############################################################################
 #

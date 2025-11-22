@@ -24,6 +24,11 @@
       aria2
       which
       tree
+      bat
+      zip
+      xz
+      unzip
+      p7zip
     ];
   };
 }

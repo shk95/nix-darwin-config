@@ -55,6 +55,9 @@
 
     # `brew install`
     brews = [
+      "pocketbase"
+      "node"
+      "gradle"
     ];
 
     # `brew install --cask`
