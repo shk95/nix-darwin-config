@@ -44,6 +44,7 @@
 
       # customize dock
       dock = {
+        appswitcher-all-displays = true;
         autohide = true;
         show-recents = false; # disable recent apps
         launchanim = true;
@@ -56,6 +57,7 @@
         largesize = 60;
         magnification = true;
         minimize-to-application = false;
+        mru-spaces = false;
         scroll-to-open = true; # Scroll up on a Dock icon to show all Space’s opened windows for an app, or open stack. The default is false.
         show-process-indicators = true;
         showAppExposeGestureEnabled = true; # Whether to enable trackpad gestures (three- or four-finger vertical swipe) to show App Exposé. The default is false. This feature interacts with system.defaults.trackpad.TrackpadFourFingerVertSwipeGesture and system.defaults.trackpad.TrackpadThreeFingerVertSwipeGesture to determine which gesture triggers App Exposé.
@@ -64,7 +66,8 @@
         showMissionControlGestureEnabled = true; # Whether to enable trackpad gestures (three- or four-finger vertical swipe) to show Mission Control. The default is false. This feature interacts with system.defaults.trackpad.TrackpadFourFingerVertSwipeGesture and system.defaults.trackpad.TrackpadThreeFingerVertSwipeGesture to determine which gesture triggers Mission Control.
 
         # Persistent applications, spacers, files, and folders in the dock.
-        # persistent-apps = []; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
+        # persistent-apps = [
+        # ]; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
 
         # customize Hot Corners
         # 1: Disabled
@@ -112,7 +115,7 @@
         ActuateDetents = true;
         Clicking = true; # enable tap to click
         DragLock = false;
-        Dragging = false;
+        Dragging = true;
         FirstClickThreshold = 0; # For normal click: 0 for light clicking, 1 for medium, 2 for firm. The default is 1.
         ForceSuppressed = false;
         SecondClickThreshold = 0; # For force touch: 0 for light clicking, 1 for medium, 2 for firm. The default is 1.
@@ -150,19 +153,41 @@
       };
 
       screencapture = {
+        disable-shadow = true;
         location = "~/Desktop";
         type = "png";
       };
 
-      spaces.spans-displays = true;
+      spaces.spans-displays = false;
+
+      WindowManager = {
+        AppWindowGroupingBehavior = true;
+        EnableStandardClickToShowDesktop = true;
+        EnableTiledWindowMargins = false;
+        EnableTilingByEdgeDrag = true;
+        EnableTilingOptionAccelerator = true;
+        EnableTopTilingByEdgeDrag = true;
+        GloballyEnabled = false; # Enable Stage Manager Stage Manager arranges your recent windows into a single strip for reduced clutter and quick access. Default is false.
+        HideDesktop = false;
+        StageManagerHideWidgets = false;
+        StandardHideDesktopIcons = false;
+        StandardHideWidgets = false;
+      };
+
+      ".GlobalPreferences" = {
+        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Frog.aiff";
+      };
 
       NSGlobalDomain = {
         # AppleInterfaceStyle = "Dark"; # dark mode
         AppleKeyboardUIMode = 2; # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true; # enable press and hold
+        AppleScrollerPagingBehavior = true; # Jump to the spot that’s clicked on the scroll bar. The default is false.
+        AppleShowScrollBars = "WhenScrolling"; # When to show the scrollbars. Options are ‘WhenScrolling’, ‘Automatic’ and ‘Always’. Type: null or one of “WhenScrolling”, “Automatic”, “Always”
+        AppleSpacesSwitchOnActivate = true; # automatically switch to a new space when switching to the application
+        AppleWindowTabbingMode = "always"; # Sets the window tabbing when opening a new document: ‘manual’, ‘always’, or ‘fullscreen’. The default is ‘fullscreen’. Type: null or one of “manual”, “always”, “fullscreen”
 
         InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
-
         KeyRepeat = 3; # sets how fast it repeats once it starts. normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
 
         NSAutomaticCapitalizationEnabled = false; # disable auto capitalization
@@ -175,7 +200,12 @@
         NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default
         NSNavPanelExpandedStateForSaveMode2 = true;
 
-        AppleSpacesSwitchOnActivate = true; # automatically switch to a new space when switching to the application
+        "com.apple.mouse.tapBehavior" = 1; # Configures the trackpad tap behavior. Mode 1 enables tap to click.
+        "com.apple.sound.beep.feedback" = 1; # Make a feedback sound when the system volume changed. This setting accepts the integers 0 or 1. Defaults to 1.
+        "com.apple.sound.beep.volume" = 0.7788008; # Apple menu > System Preferences > Sound Sets the beep/alert volume level from 0.000 (muted) to 1.000 (100% volume). 75% = 0.7788008 50% = 0.6065307 25% = 0.4723665 Type: null or floating point number
+        "com.apple.trackpad.enableSecondaryClick" = true;
+        "com.apple.trackpad.forceClick" = null; # Whether to enable trackpad force click. Type: null or boolean
+        "com.apple.trackpad.scaling" = 2.2; # Configures the trackpad tracking speed (0 to 3). The default is “1”. Type: null or floating point number
       };
 
       # Customize settings that not supported by nix-darwin directly
@@ -184,7 +214,29 @@
       #
       # All custom entries can be found by running `defaults read` command.
       # or `defaults read xxx` to read a specific domain.
-      
+      CustomUserPreferences = {
+        NSGlobalDomain = {
+          # Add a context menu item for showing the Web Inspector in web views
+          WebKitDeveloperExtras = true;
+        };
+        "com.apple.desktopservices" = {
+          # Avoid creating .DS_Store files on network or USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+        "com.apple.AdLib" = {
+          allowApplePersonalizedAdvertising = false;
+        };
+        # Prevent Photos from opening automatically when devices are plugged in
+        "com.apple.ImageCapture".disableHotPlug = true;
+        "com.apple.TextEdit" = {
+          SmartQuotes = false;
+          RichText = false;
+        };
+        "com.apple.ActivityMonitor" = {
+          UpdatePeriod = 1;
+        };
+      };
     };
   };
 }
