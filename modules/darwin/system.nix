@@ -103,7 +103,7 @@
 
         # desktop
         _FXSortFoldersFirstOnDesktop = true; # keep folders on top
-        ShowHardDrivesOnDesktop = true; # show hard disks
+        ShowHardDrivesOnDesktop = true; # show hard disksju
         ShowMountedServersOnDesktop = true; # show connected servers
       };
 
@@ -158,7 +158,7 @@
 
       NSGlobalDomain = {
         # AppleInterfaceStyle = "Dark"; # dark mode
-        AppleKeyboardUIMode = 3; # Mode 3 enables full keyboard control.
+        AppleKeyboardUIMode = 2; # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true; # enable press and hold
 
         InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
@@ -184,63 +184,7 @@
       #
       # All custom entries can be found by running `defaults read` command.
       # or `defaults read xxx` to read a specific domain.
-      CustomUserPreferences = {
-        NSGlobalDomain = {
-          "com.apple.mouse.tapBehavior" = true;
-          "com.apple.sound.beep.feedback" = true; # enable beep sound when pressing volume up/down key
-          "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
-          "com.apple.trackpad.scaling" = 1.5;
-          "com.apple.trackpad.scrolling" = "0.4412";
-
-          "WebKitDeveloperExtras" = true; # Add a context menu item for showing the Web Inspector in web views
-        };
-
-        "com.apple.WindowManager" = {
-          AppWindowGroupingBehavior = 1;
-          EnableStandardClickToShowDesktop = 1; # Click wallpaper to reveal desktop
-          StandardHideDesktopIcons = 0; # Show items on desktop
-          HideDesktop = 0; # Do not hide items on desktop & stage manager
-          StageManagerHideWidgets = 0;
-          StandardHideWidgets = 0;
-        };
-
-        "com.apple.desktopservices" = {
-          # Avoid creating .DS_Store files on network or USB volumes
-          DSDontWriteNetworkStores = true;
-          DSDontWriteUSBStores = true;
-        };
-
-        "com.apple.AdLib" = {
-          allowApplePersonalizedAdvertising = false;
-        };
-
-        # Prevent Photos from opening automatically when devices are plugged in
-        "com.apple.ImageCapture".disableHotPlug = true;
-
-        "com.apple.AppleMultitouchTrackpad" = {
-          TrackpadFiveFingerPinchGesture = 2;
-          TrackpadHandResting = true;
-          TrackpadHorizScroll = true;
-          TrackpadScroll = true;
-        };
-
-        "com.apple.universalaccess" = {
-          showWindowTitlebarIcons = true;
-          cursorFill = {
-            alpha = 1;
-            blue = 1;
-            green = "0.3088340776510008";
-            red = "0.2744658718446359";
-          };
-          cursorIsCustomized = 1;
-          cursorOutline = {
-            alpha = 1;
-            blue = "0.1334846462721144";
-            green = "0.6358327963917525";
-            red = "0.3907306394161705";
-          };
-        };
-      };
+      
     };
   };
 }
