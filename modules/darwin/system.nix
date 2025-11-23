@@ -64,6 +64,7 @@
         showDesktopGestureEnabled = true; # Whether to enable four-finger spread gesture to show the Desktop. The default is false.
         showLaunchpadGestureEnabled = true; # Whether to enable four-finger pinch gesture to show the Launchpad. The default is false.
         showMissionControlGestureEnabled = true; # Whether to enable trackpad gestures (three- or four-finger vertical swipe) to show Mission Control. The default is false. This feature interacts with system.defaults.trackpad.TrackpadFourFingerVertSwipeGesture and system.defaults.trackpad.TrackpadThreeFingerVertSwipeGesture to determine which gesture triggers Mission Control.
+        showhidden = true; # Whether to make icons of hidden applications tranclucent. The default is false.
 
         # Persistent applications, spacers, files, and folders in the dock.
         # persistent-apps = [
@@ -109,6 +110,8 @@
         ShowHardDrivesOnDesktop = true; # show hard disksju
         ShowMountedServersOnDesktop = true; # show connected servers
       };
+
+      hitoolbox.AppleFnUsageType = "Show Emoji & Symbols"; # Chooses what happens when you press the Fn key on the keyboard. A restart is required for this setting to take effect.  The default is unset (“Show Emoji & Symbols”). Type: null or one of “Do Nothing”, “Change Input Source”, “Show Emoji & Symbols”, “Start Dictation”
 
       # customize trackpad
       trackpad = {
@@ -186,6 +189,10 @@
         AppleShowScrollBars = "WhenScrolling"; # When to show the scrollbars. Options are ‘WhenScrolling’, ‘Automatic’ and ‘Always’. Type: null or one of “WhenScrolling”, “Automatic”, “Always”
         AppleSpacesSwitchOnActivate = true; # automatically switch to a new space when switching to the application
         AppleWindowTabbingMode = "always"; # Sets the window tabbing when opening a new document: ‘manual’, ‘always’, or ‘fullscreen’. The default is ‘fullscreen’. Type: null or one of “manual”, “always”, “fullscreen”
+        AppleShowAllExtensions = true;
+        AppleTemperatureUnit = "Celsius";
+        AppleMetricUnits = 1;
+        AppleMeasurementUnits = "Centimeters";
 
         InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
         KeyRepeat = 3; # sets how fast it repeats once it starts. normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
@@ -205,7 +212,7 @@
         "com.apple.sound.beep.volume" = 0.7788008; # Apple menu > System Preferences > Sound Sets the beep/alert volume level from 0.000 (muted) to 1.000 (100% volume). 75% = 0.7788008 50% = 0.6065307 25% = 0.4723665 Type: null or floating point number
         "com.apple.trackpad.enableSecondaryClick" = true;
         "com.apple.trackpad.forceClick" = null; # Whether to enable trackpad force click. Type: null or boolean
-        "com.apple.trackpad.scaling" = 2.2; # Configures the trackpad tracking speed (0 to 3). The default is “1”. Type: null or floating point number
+        "com.apple.trackpad.scaling" = 2.5; # Configures the trackpad tracking speed (0 to 3). The default is “1”. Type: null or floating point number
       };
 
       # Customize settings that not supported by nix-darwin directly
@@ -218,6 +225,7 @@
         NSGlobalDomain = {
           # Add a context menu item for showing the Web Inspector in web views
           WebKitDeveloperExtras = true;
+          NSQuitAlwaysKeepsWindows = true; # true for disable 'close windows when quitting an application'.
         };
         "com.apple.desktopservices" = {
           # Avoid creating .DS_Store files on network or USB volumes
