@@ -5,7 +5,7 @@
     username = user;
     homeDirectory = "/Users/${user}";
 
-    shell.enableZshIntegration = true;
+    shell.enableZshIntegration = false;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
