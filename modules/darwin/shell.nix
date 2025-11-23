@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    extraConfig = ''
+    interactiveShellInit = ''
       fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       autoload -Uz compinit
       compinit -u

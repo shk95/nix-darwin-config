@@ -51,14 +51,14 @@
     darwinConfigurations.default = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
       modules = [
-        ./hosts/darwin
+        ./hosts/darwin/host.nix
         # home manager
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${user} = import ./home;
+          home-manager.users.${user} = import ./hosts/darwin/home.nix;
         }
       ];
     };
