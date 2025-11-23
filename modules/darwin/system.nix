@@ -32,14 +32,42 @@
     primaryUser = user;
 
     defaults = {
-      menuExtraClock = {
-        Show24Hour = true; # show 24 hour clock
-        FlashDateSeparators = true; # When enabled, the clock indicator (which by default is the colon) will flash on and off each second. Default is null.
-        IsAnalog = false;
-        ShowDate = 1; # Show the full date. Default is null. 0 = When space allows 1 = Always 2 = Never
-        ShowDayOfMonth = true;
-        ShowDayOfWeek = true;
-        ShowSeconds = true;
+      ".GlobalPreferences" = {
+        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Frog.aiff";
+      };
+
+      NSGlobalDomain = {
+        # AppleInterfaceStyle = "Dark"; # dark mode
+        AppleKeyboardUIMode = 2; # Mode 3 enables full keyboard control.
+        ApplePressAndHoldEnabled = false; # enable press and hold
+        AppleScrollerPagingBehavior = true; # Jump to the spot that’s clicked on the scroll bar. The default is false.
+        AppleShowScrollBars = "WhenScrolling"; # When to show the scrollbars. Options are ‘WhenScrolling’, ‘Automatic’ and ‘Always’. Type: null or one of “WhenScrolling”, “Automatic”, “Always”
+        AppleSpacesSwitchOnActivate = true; # automatically switch to a new space when switching to the application
+        AppleWindowTabbingMode = "always"; # Sets the window tabbing when opening a new document: ‘manual’, ‘always’, or ‘fullscreen’. The default is ‘fullscreen’. Type: null or one of “manual”, “always”, “fullscreen”
+        AppleShowAllExtensions = true;
+        AppleTemperatureUnit = "Celsius";
+        AppleMetricUnits = 1;
+        AppleMeasurementUnits = "Centimeters";
+
+        InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
+        KeyRepeat = 3; # sets how fast it repeats once it starts. normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
+
+        NSAutomaticCapitalizationEnabled = false; # disable auto capitalization
+        NSAutomaticDashSubstitutionEnabled = false; # disable auto dash substitution
+        NSAutomaticInlinePredictionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false; # disable auto period substitution
+        NSAutomaticQuoteSubstitutionEnabled = false; # disable auto quote substitution
+        NSAutomaticSpellingCorrectionEnabled = false; # disable auto spelling correction
+
+        NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default
+        NSNavPanelExpandedStateForSaveMode2 = true;
+
+        "com.apple.mouse.tapBehavior" = 1; # Configures the trackpad tap behavior. Mode 1 enables tap to click.
+        "com.apple.sound.beep.feedback" = 1; # Make a feedback sound when the system volume changed. This setting accepts the integers 0 or 1. Defaults to 1.
+        "com.apple.sound.beep.volume" = 0.7788008; # Apple menu > System Preferences > Sound Sets the beep/alert volume level from 0.000 (muted) to 1.000 (100% volume). 75% = 0.7788008 50% = 0.6065307 25% = 0.4723665 Type: null or floating point number
+        "com.apple.trackpad.enableSecondaryClick" = true;
+        "com.apple.trackpad.forceClick" = null; # Whether to enable trackpad force click. Type: null or boolean
+        "com.apple.trackpad.scaling" = 2.5; # Configures the trackpad tracking speed (0 to 3). The default is “1”. Type: null or floating point number
       };
 
       # customize dock
@@ -113,7 +141,38 @@
 
       hitoolbox.AppleFnUsageType = "Show Emoji & Symbols"; # Chooses what happens when you press the Fn key on the keyboard. A restart is required for this setting to take effect.  The default is unset (“Show Emoji & Symbols”). Type: null or one of “Do Nothing”, “Change Input Source”, “Show Emoji & Symbols”, “Start Dictation”
 
+      loginwindow = {
+        GuestEnabled = false; # disable guest user
+        SHOWFULLNAME = true; # show full name in login window
+        PowerOffDisabledWhileLoggedIn = true; # If set to true, the Power Off menu item will be disabled when the user is logged in. Default is false.
+        RestartDisabledWhileLoggedIn = true; # Disables the “Restart” option when users are logged in. Default is false.
+        ShutDownDisabledWhileLoggedIn = true; # Disables the “Shutdown” option when users are logged in. Default is false.
+      };
+
+      menuExtraClock = {
+        Show24Hour = true; # show 24 hour clock
+        FlashDateSeparators = true; # When enabled, the clock indicator (which by default is the colon) will flash on and off each second. Default is null.
+        IsAnalog = false;
+        ShowDate = 1; # Show the full date. Default is null. 0 = When space allows 1 = Always 2 = Never
+        ShowDayOfMonth = true;
+        ShowDayOfWeek = true;
+        ShowSeconds = true;
+      };
+
+      screencapture = {
+        disable-shadow = true;
+        location = "~/Desktop";
+        type = "png";
+      };
+
+      screensaver = {
+        askForPassword = true;
+        askForPasswordDelay = 0;
+      };
+
+      spaces.spans-displays = false;
       # customize trackpad
+
       trackpad = {
         ActuateDetents = true;
         Clicking = true; # enable tap to click
@@ -142,27 +201,6 @@
         mouseDriverCursorSize = 2.628076553344727;
       };
 
-      loginwindow = {
-        GuestEnabled = false; # disable guest user
-        SHOWFULLNAME = true; # show full name in login window
-        PowerOffDisabledWhileLoggedIn = true; # If set to true, the Power Off menu item will be disabled when the user is logged in. Default is false.
-        RestartDisabledWhileLoggedIn = true; # Disables the “Restart” option when users are logged in. Default is false.
-        ShutDownDisabledWhileLoggedIn = true; # Disables the “Shutdown” option when users are logged in. Default is false.
-      };
-
-      screensaver = {
-        askForPassword = true;
-        askForPasswordDelay = 0;
-      };
-
-      screencapture = {
-        disable-shadow = true;
-        location = "~/Desktop";
-        type = "png";
-      };
-
-      spaces.spans-displays = false;
-
       WindowManager = {
         AppWindowGroupingBehavior = true;
         EnableStandardClickToShowDesktop = true;
@@ -175,44 +213,6 @@
         StageManagerHideWidgets = false;
         StandardHideDesktopIcons = false;
         StandardHideWidgets = false;
-      };
-
-      ".GlobalPreferences" = {
-        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Frog.aiff";
-      };
-
-      NSGlobalDomain = {
-        # AppleInterfaceStyle = "Dark"; # dark mode
-        AppleKeyboardUIMode = 2; # Mode 3 enables full keyboard control.
-        ApplePressAndHoldEnabled = true; # enable press and hold
-        AppleScrollerPagingBehavior = true; # Jump to the spot that’s clicked on the scroll bar. The default is false.
-        AppleShowScrollBars = "WhenScrolling"; # When to show the scrollbars. Options are ‘WhenScrolling’, ‘Automatic’ and ‘Always’. Type: null or one of “WhenScrolling”, “Automatic”, “Always”
-        AppleSpacesSwitchOnActivate = true; # automatically switch to a new space when switching to the application
-        AppleWindowTabbingMode = "always"; # Sets the window tabbing when opening a new document: ‘manual’, ‘always’, or ‘fullscreen’. The default is ‘fullscreen’. Type: null or one of “manual”, “always”, “fullscreen”
-        AppleShowAllExtensions = true;
-        AppleTemperatureUnit = "Celsius";
-        AppleMetricUnits = 1;
-        AppleMeasurementUnits = "Centimeters";
-
-        InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
-        KeyRepeat = 3; # sets how fast it repeats once it starts. normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
-
-        NSAutomaticCapitalizationEnabled = false; # disable auto capitalization
-        NSAutomaticDashSubstitutionEnabled = false; # disable auto dash substitution
-        NSAutomaticInlinePredictionEnabled = false;
-        NSAutomaticPeriodSubstitutionEnabled = false; # disable auto period substitution
-        NSAutomaticQuoteSubstitutionEnabled = false; # disable auto quote substitution
-        NSAutomaticSpellingCorrectionEnabled = false; # disable auto spelling correction
-
-        NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default
-        NSNavPanelExpandedStateForSaveMode2 = true;
-
-        "com.apple.mouse.tapBehavior" = 1; # Configures the trackpad tap behavior. Mode 1 enables tap to click.
-        "com.apple.sound.beep.feedback" = 1; # Make a feedback sound when the system volume changed. This setting accepts the integers 0 or 1. Defaults to 1.
-        "com.apple.sound.beep.volume" = 0.7788008; # Apple menu > System Preferences > Sound Sets the beep/alert volume level from 0.000 (muted) to 1.000 (100% volume). 75% = 0.7788008 50% = 0.6065307 25% = 0.4723665 Type: null or floating point number
-        "com.apple.trackpad.enableSecondaryClick" = true;
-        "com.apple.trackpad.forceClick" = null; # Whether to enable trackpad force click. Type: null or boolean
-        "com.apple.trackpad.scaling" = 2.5; # Configures the trackpad tracking speed (0 to 3). The default is “1”. Type: null or floating point number
       };
 
       # Customize settings that not supported by nix-darwin directly
