@@ -1,6 +1,4 @@
-{...}: let
-  hostname = "shk-macbook";
-in {
+{hostname, ...}: {
   imports = [
     ../../modules/darwin
   ];

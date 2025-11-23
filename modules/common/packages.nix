@@ -23,6 +23,9 @@
       just
       neovim
       p7zip
+      pstree
+      tig
+      tmux
       tree
       unzip
       wget

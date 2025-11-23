@@ -45,7 +45,8 @@
   }: let
     system = "aarch64-darwin";
     user = "shk";
-    specialArgs = inputs // {inherit system user;};
+    hostname = "shk-macbook";
+    specialArgs = inputs // {inherit system user hostname;};
   in {
     darwinConfigurations.default = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;

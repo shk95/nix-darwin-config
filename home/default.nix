@@ -2,7 +2,6 @@
   imports = [
     ./packages.nix
     ./programs
-    ./shell.nix
     ./starship.nix
     ./fonts.nix
   ];

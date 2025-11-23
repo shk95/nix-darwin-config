@@ -1,4 +1,7 @@
 {config, ...}: {
+  environment.loginShellInit = ''
+    eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+  '';
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
@@ -10,9 +13,6 @@
       # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
       cleanup = "zap";
     };
-    environment.loginShellInit = ''
-      eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-    '';
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store

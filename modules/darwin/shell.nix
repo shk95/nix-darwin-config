@@ -2,9 +2,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    initContent = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-    '';
     extraConfig = ''
       fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       autoload -Uz compinit

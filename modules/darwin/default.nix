@@ -1,10 +1,12 @@
 {system, ...}: {
   imports = [
     ../../modules/common
-    ../../modules/darwin/users.nix
-    ../../modules/darwin/system.nix
-    ../../modules/darwin/networking.nix
-    ../../modules/darwin/homebrew.nix
+    ./users.nix
+    ./system.nix
+    ./networking.nix
+    ./homebrew.nix
+    ./shell.nix
+    ./packages.nix
   ];
 
   # The platform the configuration will be used on.
