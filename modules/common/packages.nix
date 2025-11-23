@@ -16,14 +16,23 @@
     systemPackages = with pkgs; [
       aria2
       bat
+      caddy
       curl
       fzf
+      gh
       git
+      gnupg
+      go
       jq
       just
       neovim
+      nmap
       p7zip
+      poppler
+      powershell
       pstree
+      ripgrep
+      socat
       tig
       tmux
       tree
@@ -31,7 +40,9 @@
       wget
       which
       xz
+      yt-dlp
       zip
+      zstd
     ];
   };
 }

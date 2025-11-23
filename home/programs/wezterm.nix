@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   toLua = lib.generators.toLua {};
 
   colors = {
@@ -36,7 +40,7 @@
 in {
   programs.wezterm = {
     enable = true;
-
+    package = pkgs.wezterm;
     extraConfig = ''
       return ${
         toLua {

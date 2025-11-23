@@ -1,7 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   programs = {
     alacritty = {
       enable = true;
+      package = pkgs.alacritty;
       settings = {
         cursor = {
           style = "Block";

@@ -109,6 +109,8 @@
           "/Applications/KeePassXC.app"
           "/Applications/ChatGPT.app"
           "/Applications/Visual Studio Code.app"
+          "/Applications/Nix Apps/Alacritty.app"
+          "/Applications/Nix Apps/WezTerm.app"
         ]; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
 
         # customize Hot Corners
