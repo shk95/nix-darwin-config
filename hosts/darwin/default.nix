@@ -1,5 +1,5 @@
 {...}: let
-  hostname = "shk";
+  hostname = "shk-macbook";
 in {
   imports = [
     ../../modules/darwin
