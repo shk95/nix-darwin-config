@@ -14,21 +14,21 @@
     variables.EDITOR = "nvim --clean";
 
     systemPackages = with pkgs; [
-      neovim
-      git
-      just
-      jq
-      fzf
-      wget
-      curl
       aria2
-      which
-      tree
       bat
-      zip
-      xz
-      unzip
+      curl
+      fzf
+      git
+      jq
+      just
+      neovim
       p7zip
+      tree
+      unzip
+      wget
+      which
+      xz
+      zip
     ];
   };
 }
