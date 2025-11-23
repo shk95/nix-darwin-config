@@ -3,6 +3,7 @@
     ../../modules/common
     ../../modules/darwin/users.nix
     ../../modules/darwin/system.nix
+    ../../modules/darwin/networking.nix
     ../../modules/darwin/homebrew.nix
   ];
 

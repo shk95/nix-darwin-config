@@ -95,8 +95,21 @@
         showhidden = true; # Whether to make icons of hidden applications tranclucent. The default is false.
 
         # Persistent applications, spacers, files, and folders in the dock.
-        # persistent-apps = [
-        # ]; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
+        persistent-apps = [
+          "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Chromium.app"
+          "/System/Applications/News.app"
+          "/System/Applications/Maps.app"
+          "/System/Applications/Books.app"
+          "/System/Applications/Mail.app"
+          "/System/Applications/Freeform.app"
+          "/System/Applications/Notes.app"
+          "/System/Applications/Stickies.app"
+          "/Applications/Obsidian.app"
+          "/Applications/KeePassXC.app"
+          "/Applications/ChatGPT.app"
+          "/Applications/Visual Studio Code.app"
+        ]; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
 
         # customize Hot Corners
         # 1: Disabled
@@ -171,8 +184,8 @@
       };
 
       spaces.spans-displays = false;
-      # customize trackpad
 
+      # customize trackpad
       trackpad = {
         ActuateDetents = true;
         Clicking = true; # enable tap to click

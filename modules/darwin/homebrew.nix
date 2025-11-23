@@ -1,14 +1,18 @@
-{...}: {
+{config, ...}: {
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
     enable = true;
+    global.autoUpdate = true;
     onActivation = {
       autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
       upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
       # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
       cleanup = "zap";
     };
+    environment.loginShellInit = ''
+      eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+    '';
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
@@ -80,6 +84,7 @@
       "maccy"
       "ngrok"
       "obsidian"
+      "orbstack"
       "openineditor-lite"
       "openinterminal-lite"
       "postman"
