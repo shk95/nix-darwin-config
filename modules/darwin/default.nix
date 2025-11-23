@@ -5,7 +5,6 @@
     ./system.nix
     ./networking.nix
     ./homebrew.nix
-    ./shell.nix
     ./packages.nix
   ];
 

@@ -4,7 +4,6 @@
       alacritty
       darwin.trash
       wezterm
-      zsh-completions
     ];
   };
 }
