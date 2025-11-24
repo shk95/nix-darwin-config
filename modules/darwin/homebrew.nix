@@ -1,6 +1,6 @@
-{config, ...}: {
+{...}: {
   environment.loginShellInit = ''
-    eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     # brew shell completion
     autoload -Uz compinit
     compinit

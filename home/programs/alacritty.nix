@@ -68,6 +68,16 @@
             white = "0xd8dee9";
           };
         };
+
+        # Fix for shell path when launching from desktop
+        # When launching from desktop, $SHELL may point to /bin/zsh instead of
+        # the Nix-managed shell, causing environment issues
+        #
+        # -> try using `chsh` instead of this.
+        #
+        # terminal.shell = {
+        #   program = "${pkgs.zsh}/bin/zsh";
+        # };
       };
     };
   };
