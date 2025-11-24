@@ -9,11 +9,18 @@
         };
 
         window = {
-          opacity = 1.0;
+          opacity = 0.9;
+          dynamic_title = true;
+          option_as_alt = "Both"; # Option key acts as Alt on macOS
+
           padding = {
             x = 24;
             y = 24;
           };
+        };
+
+        scrolling = {
+          history = 10000;
         };
 
         font = {
@@ -21,7 +28,16 @@
             family = "JetBrainsMono Nerd Font Mono";
             style = "Regular";
           };
-          size = 13;
+          bold = {
+            family = "JetBrainsMono Nerd Font Mono";
+          };
+          bold_italic = {
+            family = "JetBrainsMono Nerd Font Mono";
+          };
+          italic = {
+            family = "JetBrainsMono Nerd Font Mono";
+          };
+          size = 14;
         };
 
         colors = {

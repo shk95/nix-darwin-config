@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   user,
   ...
 }: {
@@ -9,6 +10,14 @@
   environment.shells = [
     pkgs.zsh
   ];
+  environment.variables = {
+    # Fix https://github.com/LnL7/nix-darwin/wiki/Terminfo-issues
+    TERMINFO_DIRS =
+      map (path: path + "/share/terminfo") config.environment.profiles
+      ++ [
+        "/usr/share/terminfo"
+      ];
+  };
 
   # Add ability to used TouchID for sudo authentication
   security.pam.services.sudo_local.touchIdAuth = true;
