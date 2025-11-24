@@ -1,7 +1,4 @@
-{config, ...}: {
-  environment.loginShellInit = ''
-    eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-  '';
+{...}: {
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
@@ -10,8 +7,7 @@
     onActivation = {
       autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
       upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
-      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
-      cleanup = "zap";
+      cleanup = "zap"; # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
     };
 
     # These app IDs are from using the mas CLI app

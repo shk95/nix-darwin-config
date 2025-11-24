@@ -3,6 +3,7 @@
     ../../modules/common
     ./users.nix
     ./system.nix
+    ./shell.nix
     ./networking.nix
     ./homebrew.nix
     ./packages.nix
