@@ -46,7 +46,8 @@
     system = "aarch64-darwin";
     user = "shk";
     hostname = "shk-macbook";
-    specialArgs = inputs // {inherit system user hostname;};
+    gitmail = "101378576+shk95@users.noreply.github.com";
+    specialArgs = inputs // {inherit system user hostname gitmail;};
   in {
     darwinConfigurations.default = nix-darwin.lib.darwinSystem {
       inherit system specialArgs;

@@ -1,6 +1,7 @@
 {
   lib,
   user,
+  gitmail,
   ...
 }: {
   # `programs.git` will generate the config file: ~/.config/git/config
@@ -40,7 +41,7 @@
       settings = {
         user = {
           name = user;
-          email = "101378576+shk95@users.noreply.github.com";
+          email = gitmail;
         };
 
         init.defaultBranch = "master";
