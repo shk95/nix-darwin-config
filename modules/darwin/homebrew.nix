@@ -25,28 +25,29 @@
       folderpeek = 1615988943;
       hidden-bar = 1452453066;
       imovie = 408981434;
-      # keynote = 361285480; # error
+      keynote = 361285480; # error
+      markdown-editor = 1458220908;
       microsoft-onedrive = 823766827;
-      # microsoft-onenote = 410395246; # error
-      # microsoft-excel = 462058435; # error
-      # microsoft-powerpoint = 462062816; # error
+      microsoft-onenote = 410395246; # error
+      microsoft-excel = 462058435; # error
+      microsoft-powerpoint = 462062816; # error
       microsoft-word = 462054704;
       microsoft-todo = 1274495053;
-      # microsoft-windows_app = 1295203466; # error
-      # numbers = 361304891; # error
+      microsoft-windows_app = 1295203466; # error
+      numbers = 361304891; # error
       pages = 409201541;
-      # pdfgear = 6465897558; # error
+      pdfgear = 6465897558; # error
       tot = 1491071483;
 
       # safari extensions
       adguard = 1440147259;
-      # bitwarden = 1352778147; # error
+      bitwarden = 1352778147; # error
       obsidian-web-clipper = 6720708363;
       refined-github = 1519867270;
       rightclick-fixer = 6745181406;
       rsshub-radar = 1610744717;
       vimlike = 1584519802;
-      # wayback-machine = 1201888313; # error
+      wayback-machine = 1201888313; # error
       userscripts = 1463298887;
     };
 

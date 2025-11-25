@@ -26,8 +26,11 @@
       };
 
       NSGlobalDomain = {
+        AppleICUForce24HourTime = true;
         # AppleInterfaceStyle = "Dark"; # dark mode
         AppleKeyboardUIMode = 2; # Mode 3 enables full keyboard control.
+        AppleMeasurementUnits = "Centimeters";
+        AppleMetricUnits = 1;
         ApplePressAndHoldEnabled = false; # enable press and hold
         AppleScrollerPagingBehavior = true; # Jump to the spot that’s clicked on the scroll bar. The default is false.
         AppleShowScrollBars = "WhenScrolling"; # When to show the scrollbars. Options are ‘WhenScrolling’, ‘Automatic’ and ‘Always’. Type: null or one of “WhenScrolling”, “Automatic”, “Always”
@@ -35,8 +38,6 @@
         AppleWindowTabbingMode = "always"; # Sets the window tabbing when opening a new document: ‘manual’, ‘always’, or ‘fullscreen’. The default is ‘fullscreen’. Type: null or one of “manual”, “always”, “fullscreen”
         AppleShowAllExtensions = true;
         AppleTemperatureUnit = "Celsius";
-        AppleMetricUnits = 1;
-        AppleMeasurementUnits = "Centimeters";
 
         InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms). If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.  This is very useful for vim users, they use `hjkl` to move cursor.  sets how long it takes before it starts repeating.
         KeyRepeat = 3; # sets how fast it repeats once it starts. normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
@@ -181,7 +182,7 @@
         ActuateDetents = true;
         Clicking = true; # enable tap to click
         DragLock = false;
-        Dragging = true;
+        Dragging = false;
         FirstClickThreshold = 0; # For normal click: 0 for light clicking, 1 for medium, 2 for firm. The default is 1.
         ForceSuppressed = false;
         SecondClickThreshold = 0; # For force touch: 0 for light clicking, 1 for medium, 2 for firm. The default is 1.
