@@ -8,6 +8,10 @@
     profileExtra = ''
     '';
     initContent = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      # brew shell completion
+      autoload -Uz compinit
+      compinit
     '';
   };
 }

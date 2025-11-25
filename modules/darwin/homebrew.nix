@@ -1,11 +1,4 @@
 {...}: {
-  environment.loginShellInit = ''
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    # brew shell completion
-    autoload -Uz compinit
-    compinit
-  '';
-
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
