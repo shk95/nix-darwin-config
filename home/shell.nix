@@ -17,6 +17,10 @@
       autoload -Uz compinit
       compinit
     '';
+    profileExtra = ''
+      # aarch64-darwin
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
     initContent = let
       a = lib.mkOrder 1000 "zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'";
     in
