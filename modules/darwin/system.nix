@@ -21,9 +21,9 @@
     primaryUser = user;
 
     defaults = {
-      ".GlobalPreferences" = {
-        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Frog.aiff";
-      };
+      # ".GlobalPreferences" = {
+      #   "com.apple.sound.beep.sound" = "/System/Library/Sounds/Frog.aiff";
+      # };
 
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;
@@ -101,6 +101,7 @@
           "/Applications/Visual Studio Code.app"
           "/Applications/Nix Apps/Alacritty.app"
           "/Applications/Nix Apps/WezTerm.app"
+          "/System/Applications/Utilities/Activity Monitor.app"
         ]; # Type: null or (list of (attribute-tagged union or (string or absolute path) convertible to it))
 
         # customize Hot Corners

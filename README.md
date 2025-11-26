@@ -1,26 +1,31 @@
 # nix-darwin-config
 nix-darwin configuraion
 
-## installation
+## Installation
+
+---
+### Mac OS
 
 1. Install Apple Developer Tools
 ```sh
 xcode-select --install
 ```
 2. [Install Homebrew](https://github.com/Homebrew/brew/releases/latest)
-3. [Install Nix](https://docs.determinate.systems)
 ```sh
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install --prefer-upstream-nix
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+---
+3. Install Nix
+- [Determinate Nix](https://docs.determinate.systems)
+- [Nix](https://nixos.org/download/)
+
 4. Sign into the App Store
 5. Enable Full Disk Access for terminal application
-6. Build and switch
+6. Build and Switch
 ```sh
-nix build .#darwinConfigurations.default.system
+nix build .#darwinConfigurations.default.system --extra-experimental-features 'nix-command flakes'
 sudo -E ./result/sw/bin/darwin-rebuild switch --flake .#default
-just switch-zsh
 ```
-7. Reboot system
 
 ## References
 
