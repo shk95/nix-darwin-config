@@ -25,17 +25,8 @@
 
         font = {
           normal = {
-            family = "JetBrainsMono Nerd Font Mono";
+            family = "D2CodingLigature Nerd Font";
             style = "Regular";
-          };
-          bold = {
-            family = "JetBrainsMono Nerd Font Mono";
-          };
-          bold_italic = {
-            family = "JetBrainsMono Nerd Font Mono";
-          };
-          italic = {
-            family = "JetBrainsMono Nerd Font Mono";
           };
           size = 14;
         };

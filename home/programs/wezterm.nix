@@ -31,11 +31,11 @@
   };
 
   fontList = [
-    {family = "JetBrains Mono";}
-    {
-      family = "Apple Color Emoji"; # for emojis
-      assume_emoji_presentation = true;
-    }
+    {family = "D2CodingLigature Nerd Font";}
+    # {
+    #   family = "Apple Color Emoji"; # for emojis
+    #   assume_emoji_presentation = true;
+    # }
   ];
 in {
   programs.wezterm = {
