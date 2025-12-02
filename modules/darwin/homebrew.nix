@@ -70,6 +70,7 @@
       "discord"
       "font-hack-nerd-font"
       "github"
+      "ghostty"
       "grandperspective"
       "heynote"
       "iina"
