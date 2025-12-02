@@ -148,7 +148,7 @@
 
       loginwindow = {
         GuestEnabled = false; # disable guest user
-        SHOWFULLNAME = true; # show full name in login window
+        SHOWFULLNAME = false; # show full name in login window
         PowerOffDisabledWhileLoggedIn = true; # If set to true, the Power Off menu item will be disabled when the user is logged in. Default is false.
         RestartDisabledWhileLoggedIn = true; # Disables the “Restart” option when users are logged in. Default is false.
         ShutDownDisabledWhileLoggedIn = true; # Disables the “Shutdown” option when users are logged in. Default is false.
@@ -208,7 +208,7 @@
 
       WindowManager = {
         AppWindowGroupingBehavior = true;
-        EnableStandardClickToShowDesktop = true;
+        EnableStandardClickToShowDesktop = false; #Click wallpaper to reveal desktop Clicking your wallpaper will move all windows out of the way to allow access to your desktop items and widgets. Default is true. false means “Only in Stage Manager” true means “Always”
         EnableTiledWindowMargins = false;
         EnableTilingByEdgeDrag = true;
         EnableTilingOptionAccelerator = true;
